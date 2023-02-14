@@ -4,6 +4,7 @@ using DesignPatternTest.Creational.FactoryMethod;
 using DesignPatternTest.Creational.Prototype;
 using DesignPatternTest.Creational.Singleton;
 
+
 Console.WriteLine("Singleton:");
 TheWarp.Instance.DrawPower(10);
 TheWarp.Instance.DrawPower(15);
@@ -16,7 +17,6 @@ IEnemyFactory enemyFactory = EnemyFactoryMaker.MakeFactory(EnemyFactoryMaker.Ene
 Console.WriteLine(enemyFactory.CreateSwordEnemy().GetDescription());
 Console.WriteLine(enemyFactory.CreateAxeEnemy().GetDescription());
 Console.WriteLine(enemyFactory.CreateBowEnemy().GetDescription());
-
 enemyFactory = EnemyFactoryMaker.MakeFactory(EnemyFactoryMaker.EnemyType.Stalfos);
 Console.WriteLine(enemyFactory.CreateSwordEnemy().GetDescription());
 Console.WriteLine(enemyFactory.CreateAxeEnemy().GetDescription());
@@ -36,7 +36,6 @@ Console.WriteLine("Factory Method:");
 IMobSpawner mobSpawner = new ZombieSpawner();
 IMob mob = mobSpawner.SpawnMob();
 Console.WriteLine("Spawned " + mob.GetMobType());
-
 mobSpawner = new CreeperSpawner();
 mob = mobSpawner.SpawnMob();
 Console.WriteLine("Spawned " + mob.GetMobType());
