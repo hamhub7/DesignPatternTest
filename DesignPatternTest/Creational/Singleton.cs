@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DesignPatternTest.Creational.Singleton
+﻿namespace DesignPatternTest.Creational.Singleton
 {
     public class TheWarp
     {
@@ -18,12 +12,12 @@ namespace DesignPatternTest.Creational.Singleton
         {
             Console.WriteLine("Drawing power from the warp!");
 
-            if(amount > 0 && amount <= AccessablePower)
+            if (amount > 0 && amount <= AccessablePower)
             {
                 Console.WriteLine("Power drawn! Cast your spell, psyker!");
                 accessablePower -= amount;
             }
-            else if(amount > AccessablePower)
+            else if (amount > AccessablePower)
             {
                 Console.WriteLine("You've tried to draw too much power! Suffer the consequences of the warp!");
             }
