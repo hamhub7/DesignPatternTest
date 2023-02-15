@@ -3,6 +3,8 @@ using DesignPatternTest.Creational.Builder;
 using DesignPatternTest.Creational.FactoryMethod;
 using DesignPatternTest.Creational.Prototype;
 using DesignPatternTest.Creational.Singleton;
+using DesignPatternTest.Structural.Adapter;
+using DesignPatternTest.Structural.Bridge;
 using DesignPatternTest.Structural.Decorator;
 using DesignPatternTest.Structural.Facade;
 using DesignPatternTest.Structural.Flyweight;
@@ -12,6 +14,7 @@ Console.WriteLine("Singleton:");
 TheWarp.Instance.DrawPower(10);
 TheWarp.Instance.DrawPower(15);
 TheWarp.Instance.DrawPower(20);
+Console.WriteLine();
 Console.WriteLine();
 
 
@@ -25,6 +28,7 @@ Console.WriteLine(enemyFactory.CreateSwordEnemy().GetDescription());
 Console.WriteLine(enemyFactory.CreateAxeEnemy().GetDescription());
 Console.WriteLine(enemyFactory.CreateBowEnemy().GetDescription());
 Console.WriteLine();
+Console.WriteLine();
 
 
 Console.WriteLine("Builder:");
@@ -32,6 +36,7 @@ Vehicle vehicle = new Vehicle.Builder().WithFrame(VehicleFrame.WildWiggler).With
 Console.WriteLine("Frame: " + vehicle.frame);
 Console.WriteLine("Wheels: " + vehicle.wheels);
 Console.WriteLine("Glider: " + vehicle.glider);
+Console.WriteLine();
 Console.WriteLine();
 
 
@@ -43,6 +48,7 @@ mobSpawner = new CreeperSpawner();
 mob = mobSpawner.SpawnMob();
 Console.WriteLine("Spawned " + mob.GetMobType());
 Console.WriteLine();
+Console.WriteLine();
 
 
 Console.WriteLine("Prototype:");
@@ -52,17 +58,39 @@ Console.WriteLine("Height: " + clone.height + "m");
 Console.WriteLine("Weight: " + clone.weight + "kg");
 Console.WriteLine("Species: " + clone.species);
 Console.WriteLine();
+Console.WriteLine();
 
 
 Console.WriteLine("Adapter:");
+Console.WriteLine("Xbox with proper controller");
+XboxController xboxController = new(new XboxSeriesS());
+xboxController.PressAllButtons();
+Console.WriteLine("Playstation with proper controller");
+PlaystationController playstationController = new(new PS5());
+playstationController.PressAllButtons();
+Console.WriteLine("Xbox with Playstation controller");
+PlaystationController adaptedPlaystationController = new(new XboxToPlaystationControllerAdapter(new XboxSeriesS()));
+adaptedPlaystationController.PressAllButtons();
+Console.WriteLine("Playstation with Xbox controller");
+XboxController adaptedXboxController = new(new PlaystationToXboxControllerAdapter(new PS5()));
+adaptedXboxController.PressAllButtons();
+Console.WriteLine();
 Console.WriteLine();
 
 
 Console.WriteLine("Bridge:");
+IInfernalWeapon stygianBlade = new StygianBlade(new ZeusBoon());
+stygianBlade.Attack();
+stygianBlade.Special();
+IInfernalWeapon shieldOfChaos = new ShieldOfChaos(new AresBoon());
+shieldOfChaos.Attack();
+shieldOfChaos.Special();
+Console.WriteLine();
 Console.WriteLine();
 
 
 Console.WriteLine("Composite:");
+Console.WriteLine();
 Console.WriteLine();
 
 
@@ -73,6 +101,7 @@ Console.Write(armor.GetDetails());
 Console.WriteLine("Speed: " + armor.GetSpeed());
 Console.WriteLine("Attack Power: " + armor.GetAttackPower());
 Console.WriteLine();
+Console.WriteLine();
 
 
 Console.WriteLine("Facade:");
@@ -80,6 +109,7 @@ FrostpunkFacade frostpunkFacade = new();
 frostpunkFacade.Dawn();
 frostpunkFacade.WorkDay();
 frostpunkFacade.Dusk();
+Console.WriteLine();
 Console.WriteLine();
 
 
@@ -95,6 +125,7 @@ foreach(INecron necron in army)
 {
     Console.WriteLine(necron.GetDetails());
 }
+Console.WriteLine();
 Console.WriteLine();
 
 
@@ -113,4 +144,5 @@ dune.Enter(harvester886);
 dune.Exit(harvester070);
 dune.Enter(harvester886);
 dune.Enter(harvester227);
+Console.WriteLine();
 Console.WriteLine();
