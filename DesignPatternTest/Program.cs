@@ -74,12 +74,14 @@ Console.WriteLine("Speed: " + armor.GetSpeed());
 Console.WriteLine("Attack Power: " + armor.GetAttackPower());
 Console.WriteLine();
 
+
 Console.WriteLine("Facade:");
 FrostpunkFacade frostpunkFacade = new();
 frostpunkFacade.Dawn();
 frostpunkFacade.WorkDay();
 frostpunkFacade.Dusk();
 Console.WriteLine();
+
 
 Console.WriteLine("Flyweight:");
 TombWorld tombWorld = new();
@@ -94,6 +96,7 @@ foreach(INecron necron in army)
     Console.WriteLine(necron.GetDetails());
 }
 Console.WriteLine();
+
 
 Console.WriteLine("Proxy:");
 SpiceHarvester harvester070 = new(070);
