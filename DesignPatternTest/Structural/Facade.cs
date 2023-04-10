@@ -31,7 +31,7 @@ namespace DesignPatternTest.Structural.Facade
         public string GetName() => "Workshop";
     }
 
-    public abstract class Employee
+    public abstract class Citizen
     {
         public abstract string GetName();
 
@@ -95,7 +95,7 @@ namespace DesignPatternTest.Structural.Facade
         }
     }
 
-    public class Worker : Employee
+    public class Worker : Citizen
     {
         private readonly string name;
         private readonly IWorkerBuilding building;
@@ -117,7 +117,7 @@ namespace DesignPatternTest.Structural.Facade
         }
     }
 
-    public class Engineer : Employee
+    public class Engineer : Citizen
     {
         private readonly string name;
         private readonly IEngineerBuilding building;
@@ -141,7 +141,7 @@ namespace DesignPatternTest.Structural.Facade
 
     public class FrostpunkFacade
     {
-        private readonly List<Employee> employees = new()
+        private readonly List<Citizen> employees = new()
         {
             new Worker("Paul Allen", new Sawmill()),
             new Worker("Patrick Bateman", new HuntersHut()),
@@ -151,20 +151,20 @@ namespace DesignPatternTest.Structural.Facade
 
         public void Dawn()
         {
-            MakeActions(employees, Employee.Job.WakeUp, Employee.Job.GoToWork);
+            MakeActions(employees, Citizen.Job.WakeUp, Citizen.Job.GoToWork);
         }
 
         public void WorkDay()
         {
-            MakeActions(employees, Employee.Job.Work);
+            MakeActions(employees, Citizen.Job.Work);
         }
 
         public void Dusk()
         {
-            MakeActions(employees, Employee.Job.GoHome, Employee.Job.GoToSleep);
+            MakeActions(employees, Citizen.Job.GoHome, Citizen.Job.GoToSleep);
         }
 
-        private static void MakeActions(List<Employee> employees, params Employee.Job[] jobs)
+        private static void MakeActions(List<Citizen> employees, params Citizen.Job[] jobs)
         {
             employees.ForEach(e => e.DoJob(jobs));
         }

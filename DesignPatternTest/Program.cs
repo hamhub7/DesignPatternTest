@@ -1,4 +1,5 @@
-﻿using DesignPatternTest.Creational.AbstractFactory;
+﻿using DesignPatternTest.Behavioral.Observer;
+using DesignPatternTest.Creational.AbstractFactory;
 using DesignPatternTest.Creational.Builder;
 using DesignPatternTest.Creational.FactoryMethod;
 using DesignPatternTest.Creational.Prototype;
@@ -144,5 +145,68 @@ dune.Enter(harvester886);
 dune.Exit(harvester070);
 dune.Enter(harvester886);
 dune.Enter(harvester227);
+Console.WriteLine();
+Console.WriteLine();
+
+
+Console.WriteLine("Chain of Responsibility:");
+Console.WriteLine();
+Console.WriteLine();
+
+
+Console.WriteLine("Command:");
+Console.WriteLine();
+Console.WriteLine();
+
+
+Console.WriteLine("Interpreter:");
+Console.WriteLine();
+Console.WriteLine();
+
+
+Console.WriteLine("Iterator:");
+Console.WriteLine();
+Console.WriteLine();
+
+
+Console.WriteLine("Mediator:");
+Console.WriteLine();
+Console.WriteLine();
+
+
+Console.WriteLine("Memento:");
+Console.WriteLine();
+Console.WriteLine();
+
+
+Console.WriteLine("Observer:");
+Hitman agent47 = new();
+Guard guard = new();
+guard.Register(agent47);
+Console.WriteLine("Guard's last seen action: " + guard.ObservedAction);
+agent47.ActSuspicious("Grab knife");
+Console.WriteLine("Guard's last seen action: " + guard.ObservedAction);
+agent47.ActSuspicious("Stab civilian");
+Console.WriteLine("Guard's last seen action: " + guard.ObservedAction);
+Console.WriteLine();
+Console.WriteLine();
+
+
+Console.WriteLine("State:");
+Console.WriteLine();
+Console.WriteLine();
+
+
+Console.WriteLine("Strategy:");
+Console.WriteLine();
+Console.WriteLine();
+
+
+Console.WriteLine("TemplateMethod:");
+Console.WriteLine();
+Console.WriteLine();
+
+
+Console.WriteLine("Visitor:");
 Console.WriteLine();
 Console.WriteLine();
