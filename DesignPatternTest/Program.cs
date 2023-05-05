@@ -1,4 +1,5 @@
 ﻿using DesignPatternTest.Behavioral.Observer;
+using DesignPatternTest.Behavioral.Strategy;
 using DesignPatternTest.Creational.AbstractFactory;
 using DesignPatternTest.Creational.Builder;
 using DesignPatternTest.Creational.FactoryMethod;
@@ -198,11 +199,16 @@ Console.WriteLine();
 
 
 Console.WriteLine("Strategy:");
+IPersonaUser joker = new Joker();
+joker.Attack(new MeleeAttack());
+joker.Attack(new GunAttack());
+joker.Attack(new PersonaAttack(new Eiha()));
+joker.Attack(new PersonaAttack(new Cleave()));
 Console.WriteLine();
 Console.WriteLine();
 
 
-Console.WriteLine("TemplateMethod:");
+Console.WriteLine("Template Method:");
 Console.WriteLine();
 Console.WriteLine();
 
